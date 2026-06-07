@@ -185,12 +185,6 @@ export default function HomePage() {
         <div className="container" style={{ position: 'relative', zIndex: 1, paddingTop: 'clamp(40px, 8vw, 80px)', paddingBottom: 'clamp(40px, 8vw, 80px)' }}>
           <div className="hero-grid">
             <div className="hero-content">
-              {/* Dynamic Open Status Pulse */}
-              <div className={`status-badge-pulse ${isOpenStatus.open ? 'open' : 'closed'} hero-reveal-1`}>
-                <span className="pulse-dot" />
-                {isOpenStatus.message}
-              </div>
-
               <div className="hero-reveal-1" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--gold-dim)', border: '1px solid var(--gold-border)', borderRadius: 20, padding: '6px 14px', marginBottom: 24, fontSize: 13, color: 'var(--gold)', fontWeight: 500 }}>
                 <Scissors size={13}/> {settings?.tagline || 'Premium Grooming Studio'}
               </div>
