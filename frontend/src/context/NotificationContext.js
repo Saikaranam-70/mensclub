@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { io } from 'socket.io-client';
-import { notificationsAPI } from '../services/api';
+import { notificationsAPI, getSocketUrl } from '../services/api';
 import toast from 'react-hot-toast';
 import { useAuth } from './AuthContext';
 
@@ -15,7 +15,7 @@ export const NotificationProvider = ({ children }) => {
   useEffect(() => {
     if (user) {
       fetchNotifications();
-      const s = io(process.env.REACT_APP_SOCKET_URL || 'http://localhost:5000');
+      const s = io(getSocketUrl());
       s.emit('join', user._id);
       s.on('notification', (notif) => {
         setNotifications(prev => [notif, ...prev]);
